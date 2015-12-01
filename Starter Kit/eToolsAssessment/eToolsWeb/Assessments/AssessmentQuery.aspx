@@ -9,20 +9,14 @@
     <uc1:MessageUserControl runat="server" ID="MessageUserControl" />
     <asp:Repeater ID="CategoryDTORepeater" runat="server" DataSourceID="RepeaterDataSource" ItemType="eToolsSystem.Entities.DTOs.CategoryDTO">
         <ItemTemplate>
-        
+                <div>
                 <h3>Catgeory : <%# Item.CategoryDescription %></h3>
-         
-                    <asp:Repeater ID="Repeater1" DataSource ="<%# Item.Stocks %>" ItemType="eToolsSystem.Entities.POCOs.CategoryStockItem" runat="server">
-                        <ItemTemplate>
-                            Description : <%# Item.Name %>
-                            <br />
-                            QOH :   <%# Item.OnHand %>
-                            <br />
-                             Markup :  <%# Item.Markup %>
-                            <br />
-                            
-                        </ItemTemplate>
-                    </asp:Repeater>
+                    <div>
+                        <asp:GridView ID="GridView1" DataSource="<%# Item.Stocks %>" ItemType="eToolsSystem.Entities.POCOs.CategoryStockItem" runat="server">
+
+                        </asp:GridView>
+                    </div>
+                </div>
         </ItemTemplate>
 
     </asp:Repeater>
